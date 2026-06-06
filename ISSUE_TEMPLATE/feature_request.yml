@@ -1,0 +1,33 @@
+name: ✨ Feature request
+description: Suggest an improvement or a new capability.
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem / motivation
+      description: What are you trying to do that is hard or impossible today?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed solution
+      description: What would you like to happen?
+    validations:
+      required: true
+  - type: dropdown
+    id: contract
+    attributes:
+      label: Does this affect the wire contract (envelope / URN / broker binding)?
+      options:
+        - "No — SDK / DX only"
+        - "Yes — would need an ADR + schema_version decision"
+        - "Not sure"
+    validations:
+      required: true
+  - type: textarea
+    id: scope
+    attributes:
+      label: Affected SDKs
+      description: Which languages/adapters would this touch? Cross-SDK parity matters.

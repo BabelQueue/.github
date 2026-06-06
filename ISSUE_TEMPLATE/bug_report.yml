@@ -1,0 +1,61 @@
+name: 🐛 Bug report
+description: Report a problem with a BabelQueue package.
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for the report! Please **do not** use this form for security issues —
+        see [SECURITY.md](https://github.com/BabelQueue/.github/blob/main/SECURITY.md).
+  - type: dropdown
+    id: package
+    attributes:
+      label: Package / language
+      options:
+        - PHP — babelqueue/php-sdk
+        - PHP — babelqueue/laravel
+        - PHP — babelqueue/symfony
+        - Go
+        - Python
+        - Java
+        - .NET
+        - Node.js
+        - Website / docs
+        - Other
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Package version
+      placeholder: e.g. dev-main, 1.0.0
+    validations:
+      required: true
+  - type: dropdown
+    id: broker
+    attributes:
+      label: Broker
+      options:
+        - Redis
+        - RabbitMQ
+        - N/A
+        - Other
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened?
+      description: A clear description of the bug, and what you expected instead.
+    validations:
+      required: true
+  - type: textarea
+    id: repro
+    attributes:
+      label: Steps to reproduce
+      description: Minimal steps or code. Include the message envelope JSON if relevant.
+      render: text
+  - type: textarea
+    id: env
+    attributes:
+      label: Environment
+      description: Language/runtime version, framework version, OS.
+      render: text
