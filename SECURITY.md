@@ -2,13 +2,13 @@
 
 ## Supported versions
 
-BabelQueue is **pre-1.0**. Until a `1.0` release, security fixes are applied to the
-latest version of each package only.
+BabelQueue is **1.0 (GA)**. Security fixes are applied to the latest `1.x` release of
+each package; the wire envelope is frozen at `schema_version: 1`.
 
-| Package family | Supported |
+| Version | Supported |
 | :--- | :--- |
-| Latest release / `main` | ✅ |
-| Older pre-1.0 tags | ❌ |
+| Latest `1.x` release | ✅ |
+| `0.x` (pre-1.0) tags | ❌ |
 
 ## Reporting a vulnerability
 

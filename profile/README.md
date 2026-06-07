@@ -9,7 +9,7 @@ Node.js all speak — over the broker you already run.**
 
 [![Website](https://img.shields.io/badge/website-babelqueue.com-10B981)](https://babelqueue.com)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](#-license)
-![Status](https://img.shields.io/badge/status-pre--1.0-orange)
+![Status](https://img.shields.io/badge/status-1.0_GA-10B981)
 
 </div>
 
@@ -69,16 +69,14 @@ def on_order_created(data, meta):
 Each language ships a framework-agnostic **core** plus thin **framework adapters**,
 so the wire format stays identical everywhere.
 
-| Language | Package(s) | Registry | Status |
-| :--- | :--- | :--- | :--- |
-| PHP — core | `babelqueue/php-sdk` | Packagist | 🚧 Pre-1.0 |
-| PHP — Laravel | `babelqueue/laravel` | Packagist | 🚧 Pre-1.0 |
-| PHP — Symfony | `babelqueue/symfony` | Packagist | 📋 Planned |
-| Go | `babelqueue-go` | Go modules | 📋 Planned |
-| Python | `babelqueue` | PyPI | 📋 Planned |
-| Java | `com.babelqueue:babelqueue-core` | Maven Central | 📋 Planned |
-| .NET | `BabelQueue.Core` | NuGet | 📋 Planned |
-| Node.js | `@babelqueue/core` | npm | 📋 Planned |
+| Language | Core | Framework adapter(s) | Registry | Status |
+| :--- | :--- | :--- | :--- | :--- |
+| PHP | `babelqueue/php-sdk` | `babelqueue/laravel`, `babelqueue/symfony` | Packagist | ✅ 1.0.0 |
+| Python | `babelqueue` | `[celery]`, `[django]` extras | PyPI | ✅ 1.0.0 |
+| Go | `babelqueue-go` | `…/redis`, `…/amqp` modules | Go modules | ✅ 1.0.0 |
+| Node.js | `@babelqueue/core` | `@babelqueue/bullmq`, `@babelqueue/nestjs` | npm | ✅ 1.0.0 |
+| Java | `com.babelqueue:babelqueue-core` | `…:babelqueue-spring` | Maven Central | ✅ 1.0.0 |
+| .NET | `BabelQueue.Core` | `BabelQueue.MassTransit` | NuGet | ✅ 1.0.0 |
 
 **Brokers:** Redis · RabbitMQ
 
@@ -90,9 +88,9 @@ so the wire format stays identical everywhere.
 - ❤️ **Sponsor:** [github.com/sponsors/muhammetsafak](https://github.com/sponsors/muhammetsafak)
 - 💬 Open an issue or discussion on the relevant repository.
 
-> **Status:** BabelQueue is **pre-1.0** and under active development. The wire
-> contract is frozen at `schema_version: 1`; package APIs may still change before
-> their `1.0` release.
+> **Status:** BabelQueue is **1.0 (GA)** — every SDK is published at `v1.0.0` with a
+> SemVer-stable public API (breaking changes require a MAJOR, per the deprecation
+> policy). The wire contract is frozen at `schema_version: 1`.
 
 ## 📄 License
 

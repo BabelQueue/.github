@@ -41,9 +41,13 @@ open an issue/discussion first.
 
 | Repo | Setup | Test |
 | :--- | :--- | :--- |
-| `php-sdk`, `laravel` (PHP) | `composer install` | `vendor/bin/phpunit` |
+| `php-sdk`, `laravel`, `symfony` (PHP) | `composer install` | `vendor/bin/phpunit` |
+| `babelqueue-python` (Python) | `pip install -e ".[redis,amqp]"` | `pytest` |
+| `babelqueue-go` (+ `redis`/`amqp`) | `go mod download` | `go test ./...` |
+| `babelqueue-node`, `babelqueue-node-adapters` (Node) | `npm ci` | `npm test` |
+| `babelqueue-java`, `babelqueue-spring` (Java) | — | `mvn verify` |
+| `babelqueue-dotnet`, `babelqueue-dotnet-masstransit` (.NET) | — | `dotnet test` |
 | `babelqueue.com` (site) | `npm install` | `npm run build` |
-| Future SDKs | per that repo's README | per that repo's README |
 
 The Laravel adapter resolves the core (`babelqueue/php-sdk`) via a local Composer
 `path` repository when both are checked out side by side.
