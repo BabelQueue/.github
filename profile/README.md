@@ -74,9 +74,9 @@ so the wire format stays identical everywhere.
 | Language | Core | Framework adapters + broker transports | Registry | Status |
 | :--- | :--- | :--- | :--- | :--- |
 | PHP | `babelqueue/php-sdk` | `babelqueue/laravel`, `babelqueue/symfony` (Redis/AMQP/SQS/Pulsar/Kafka/Artemis transports in the core) | Packagist | ✅ 1.x |
-| Python | `babelqueue` | broker extras: `[redis]` `[amqp]` `[sqs]` `[pulsar]` `[kafka]` `[asb]` `[artemis]` | PyPI | ✅ 1.x |
+| Python | `babelqueue` | `[celery]` `[django]` + broker extras `[redis]` `[amqp]` `[sqs]` `[pulsar]` `[kafka]` `[azureservicebus]` `[artemis]` | PyPI | ✅ 1.x |
 | Go | `babelqueue-go` | `…/redis` `…/amqp` `…/sqs` `…/pulsar` `…/kafka` `…/artemis` `…/azureservicebus` + `…/asynq` `…/machinery` | Go modules | ✅ 1.x |
-| Node.js | `@babelqueue/core` | `@babelqueue/bullmq` `@babelqueue/nestjs` + `redis` `rabbitmq` `sqs` packages | npm | ✅ 1.x |
+| Node.js | `@babelqueue/core` | `@babelqueue/bullmq` `@babelqueue/nestjs` + `redis` `rabbitmq` `sqs` `pulsar` `kafka` `artemis` `azure-service-bus` packages | npm | ✅ 1.x |
 | Java | `com.babelqueue:babelqueue-core` | `…:babelqueue-spring` + `-redis` `-sqs` `-pulsar` `-kafka` `-artemis` `-azureservicebus` | Maven Central | ✅ 1.x |
 | .NET | `BabelQueue.Core` | `BabelQueue.MassTransit` + `.Redis` `.Sqs` `.Pulsar` `.Kafka` `.Artemis` `.AzureServiceBus` | NuGet | ✅ 1.x |
 

@@ -38,6 +38,11 @@ body:
       options:
         - Redis
         - RabbitMQ
+        - Amazon SQS
+        - Azure Service Bus
+        - Apache Pulsar
+        - Apache Kafka
+        - ActiveMQ/Artemis
         - N/A
         - Other
   - type: textarea

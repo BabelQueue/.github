@@ -20,7 +20,8 @@ Report privately, either:
   affected repository's **Security** tab, or
 - by email to **info@muhammetsafak.com.tr** with subject `BabelQueue Security`.
 
-Please include: the affected package and version, the broker (Redis/RabbitMQ), a
+Please include: the affected package and version, the broker (Redis, RabbitMQ,
+Amazon SQS, Azure Service Bus, Apache Pulsar, Apache Kafka or ActiveMQ/Artemis), a
 description, and a reproduction or proof-of-concept if possible.
 
 We aim to acknowledge within **72 hours**, agree on a disclosure timeline, and
@@ -35,7 +36,7 @@ when assessing reports:
   uses PHP `serialize()`/`unserialize()` (or equivalent) for cross-language payloads.
 - **Payloads are untrusted input.** Consumers must validate `data`; a URN is routing
   identity, **not** authorization.
-- **Credentials** (Redis/RabbitMQ) live in the host app's configuration/secrets and
+- **Broker credentials** live in the host app's configuration/secrets and
   never travel in the envelope.
 
 In scope: the BabelQueue SDKs and their handling of messages, brokers and
