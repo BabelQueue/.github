@@ -11,6 +11,7 @@ Node.js all speak — over the broker you already run.**
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](#-license)
 ![Status](https://img.shields.io/badge/status-1.x_GA-10B981)
 ![Brokers](https://img.shields.io/badge/brokers-7-10B981)
+[![Designed & Maintained with Tan](https://www.muhammetsafak.com.tr/badges/designed-maintained-with-tan.svg)](https://www.muhammetsafak.com.tr/en/tan/)
 
 </div>
 
