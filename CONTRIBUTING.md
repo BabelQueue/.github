@@ -22,7 +22,8 @@ that takes precedence.
   only as an inbound alias.
 - `data` is **pure JSON**. Never use a language's native serialization across the wire.
 - **Preserve and forward `trace_id`** unchanged on every hop.
-- Forbidden legacy keys: `timestamp`, `meta.max_retries`, `meta.source`, `meta.ts`.
+- Forbidden legacy keys: `timestamp`, `meta.max_retries`, `meta.attempts`, `meta.source`,
+  `meta.ts`. Encoders reject them; decoders drop them with a warning.
 
 If a change would alter the bytes on the wire, it is an architectural decision —
 open an issue/discussion first.
@@ -42,11 +43,13 @@ open an issue/discussion first.
 | Repo | Setup | Test |
 | :--- | :--- | :--- |
 | `php-sdk`, `laravel`, `symfony` (PHP) | `composer install` | `vendor/bin/phpunit` |
-| `babelqueue-python` (Python) | `pip install -e ".[redis,amqp]"` | `pytest` |
-| `babelqueue-go` (+ `redis`/`amqp`) | `go mod download` | `go test ./...` |
+| `babelqueue-python` (Python) | `pip install -e ".[dev]"` (+ broker extras, e.g. `.[dev,redis,amqp]`) | `pytest` |
+| `babelqueue-go` (Go) — each transport/helper dir (`redis/`, `kafka/`, `otel/`, …) is its own module | `go mod download` | `go test ./...` (per module) |
 | `babelqueue-node`, `babelqueue-node-adapters` (Node) | `npm ci` | `npm test` |
-| `babelqueue-java`, `babelqueue-spring` (Java) | — | `mvn verify` |
-| `babelqueue-dotnet`, `babelqueue-dotnet-masstransit` (.NET) | — | `dotnet test` |
+| `babelqueue-java`, `babelqueue-spring`, `babelqueue-java-<broker>` (Java) | — | `mvn verify` |
+| `babelqueue-dotnet`, `babelqueue-dotnet-masstransit`, `babelqueue-dotnet-<broker>` (.NET) | — | `dotnet test` |
+| `babelqueue-registry` (`bqschema`, Go) | `go mod download` | `go test ./...` |
+| `conformance` (suite) | — | see its README; SDKs vendor it with `fetch.sh` |
 | `babelqueue.com` (site) | `npm install` | `npm run build` |
 
 The Laravel adapter resolves the core (`babelqueue/php-sdk`) via a local Composer
@@ -61,7 +64,8 @@ The Laravel adapter resolves the core (`babelqueue/php-sdk`) via a local Compose
 - **Versioning:** [SemVer](https://semver.org/). The package version and the envelope
   `schema_version` are independent axes.
 - **CI/CD:** every repo ships GitHub Actions for tests (on PR/push) and publish
-  (on tag). A red pipeline blocks merge.
+  (on tag). A red pipeline blocks merge. Every SDK's CI also runs the vendored
+  cross-SDK conformance fixtures, pinned to a conformance release.
 
 ## Definition of done
 

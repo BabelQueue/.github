@@ -75,16 +75,36 @@ so the wire format stays identical everywhere.
 | Language | Core | Framework adapters + broker transports | Registry | Status |
 | :--- | :--- | :--- | :--- | :--- |
 | PHP | `babelqueue/php-sdk` | `babelqueue/laravel`, `babelqueue/symfony` (Redis/AMQP/SQS/Pulsar/Kafka/Artemis transports in the core) | Packagist | ✅ 1.x |
-| Python | `babelqueue` | `[celery]` `[django]` + broker extras `[redis]` `[amqp]` `[sqs]` `[pulsar]` `[kafka]` `[azureservicebus]` `[artemis]` | PyPI | ✅ 1.x |
-| Go | `babelqueue-go` | `…/redis` `…/amqp` `…/sqs` `…/pulsar` `…/kafka` `…/artemis` `…/azureservicebus` + `…/asynq` `…/machinery` | Go modules | ✅ 1.x |
+| Python | `babelqueue` | `[celery]` `[django]` + broker extras `[redis]` `[amqp]` `[sqs]` `[pulsar]` `[kafka]` `[azureservicebus]` `[artemis]` (+ `[otel]` `[gdpr]`) | PyPI | ✅ 1.x |
+| Go | `babelqueue-go` | `…/redis` `…/amqp` `…/sqs` `…/pulsar` `…/kafka` `…/artemis` `…/azureservicebus` + `…/asynq` `…/machinery` (+ `…/otel` `…/idempotency-redis` `…/idempotency-postgres`) | Go modules | ✅ 1.x |
 | Node.js | `@babelqueue/core` | `@babelqueue/bullmq` `@babelqueue/nestjs` + `redis` `rabbitmq` `sqs` `pulsar` `kafka` `artemis` `azure-service-bus` packages | npm | ✅ 1.x |
-| Java | `com.babelqueue:babelqueue-core` | `…:babelqueue-spring` + `-redis` `-sqs` `-pulsar` `-kafka` `-artemis` `-azureservicebus` | Maven Central | ✅ 1.x |
+| Java | `com.babelqueue:babelqueue-core` | `…:babelqueue-spring` + `-redis` `-sqs` `-pulsar` `-kafka` `-artemis` `-azure-servicebus` | Maven Central | ✅ 1.x |
 | .NET | `BabelQueue.Core` | `BabelQueue.MassTransit` + `.Redis` `.Sqs` `.Pulsar` `.Kafka` `.Artemis` `.AzureServiceBus` | NuGet | ✅ 1.x |
 
 **Brokers — every SDK speaks the same envelope over each:** Redis · RabbitMQ · Amazon SQS ·
 Azure Service Bus · Apache Pulsar · Apache Kafka · ActiveMQ/Artemis. Each is locked by the
 cross-SDK conformance suite and proven by a live cross-language interop demo. _(PHP × Azure
 Service Bus is the one documented deferral — every other (language × broker) cell ships.)_
+
+**Tooling around the SDKs:**
+
+| Repo | What |
+| :--- | :--- |
+| [`conformance`](https://github.com/BabelQueue/conformance) | The canonical cross-SDK suite — JSON Schema + golden fixtures every SDK's CI runs. |
+| [`babelqueue-registry`](https://github.com/BabelQueue/babelqueue-registry) | `bqschema` — file-based schema governance: per-URN `data` schemas, `validate` / `compat` / `export-asyncapi` / `gdpr`. |
+| [`babelqueue-examples`](https://github.com/BabelQueue/babelqueue-examples) | Runnable cross-language demos — one live interop proof per broker. |
+
+## Beyond the envelope — opt-in operability
+
+Every feature below is **opt-in** and travels **around** the envelope, never inside it —
+the wire stays at `schema_version: 1` and every SDK still emits byte-identical messages.
+
+- 🔁 **Idempotency** — consumer-side dedupe keyed on `meta.id`.
+- 📤 **Transactional outbox** — persist the message atomically with your business write, relay it later.
+- 📐 **Schema validation** — optional per-URN `data` schemas, checked on produce and consume.
+- 🔭 **OpenTelemetry** — `trace_id` ↔ TraceID, W3C `traceparent` header propagation and a standard metric set.
+- 🧯 **DLQ redrive** — safe replay off `<queue>.dlq` (dry-run, select, sandbox) with a replay-bypass side-effect guard.
+- 🛡️ **GDPR** — `x-gdpr-sensitive` field governance plus bring-your-own-cipher field-level encryption.
 
 ## Get involved
 

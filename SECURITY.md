@@ -2,7 +2,7 @@
 
 ## Supported versions
 
-BabelQueue is **1.0 (GA)**. Security fixes are applied to the latest `1.x` release of
+BabelQueue is **GA (1.x)**. Security fixes are applied to the latest `1.x` release of
 each package; the wire envelope is frozen at `schema_version: 1`.
 
 | Version | Supported |
@@ -39,6 +39,7 @@ when assessing reports:
 - **Broker credentials** live in the host app's configuration/secrets and
   never travel in the envelope.
 
-In scope: the BabelQueue SDKs and their handling of messages, brokers and
-configuration. Out of scope: vulnerabilities in third-party brokers or drivers
+In scope: the BabelQueue SDKs (cores, framework adapters and broker transports)
+and their handling of messages, brokers and configuration, plus the `bqschema`
+CLI (`babelqueue-registry`). Out of scope: vulnerabilities in third-party brokers or drivers
 themselves (report those upstream), and issues requiring a compromised host.

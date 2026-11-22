@@ -18,7 +18,7 @@
 ## Checklist
 
 - [ ] Tests added or updated, and passing locally.
-- [ ] CI is green.
+- [ ] CI is green, including the cross-SDK conformance fixtures.
 - [ ] Cross-SDK parity considered (or the change is SDK-local by design).
 - [ ] Docs / `CHANGELOG.md` updated where user-facing.
 - [ ] Conventional-commit messages.

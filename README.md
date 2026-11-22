@@ -11,6 +11,7 @@ automatically across every repo that doesn't define its own.
 - [`SECURITY.md`](SECURITY.md) — how to report a vulnerability
 - [`PULL_REQUEST_TEMPLATE.md`](PULL_REQUEST_TEMPLATE.md) — default PR template
 - [`ISSUE_TEMPLATE/`](ISSUE_TEMPLATE/) — default bug-report / feature-request forms
+- [`FUNDING.yml`](FUNDING.yml) — the org-wide "Sponsor" button
 
 > **BabelQueue** — *Polyglot Queues, Simplified.* See the profile above or
 > [babelqueue.com](https://babelqueue.com).

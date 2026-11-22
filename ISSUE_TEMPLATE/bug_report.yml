@@ -20,6 +20,8 @@ body:
         - Java
         - .NET
         - Node.js
+        - Schema registry — bqschema
+        - Conformance suite
         - Website / docs
         - Other
     validations:
@@ -28,7 +30,7 @@ body:
     id: version
     attributes:
       label: Package version
-      placeholder: e.g. dev-main, 1.0.0
+      placeholder: e.g. 1.4.0 (or a commit SHA)
     validations:
       required: true
   - type: dropdown
