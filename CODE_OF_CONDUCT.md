@@ -27,6 +27,6 @@ and discussions — and whenever someone is representing the project in public.
 ## Reporting
 
 Report concerns confidentially to the project maintainer at
-**info@muhammetsafak.com.tr**. Reports are reviewed promptly and fairly, and the
+**info@muhammetsafak.com**. Reports are reviewed promptly and fairly, and the
 reporter's privacy is respected. Enforcement follows the Contributor Covenant's
 guidelines linked above.

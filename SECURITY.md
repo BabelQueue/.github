@@ -18,7 +18,7 @@ Report privately, either:
 
 - via **GitHub Private Vulnerability Reporting** — "Report a vulnerability" on the
   affected repository's **Security** tab, or
-- by email to **info@muhammetsafak.com.tr** with subject `BabelQueue Security`.
+- by email to **info@muhammetsafak.com** with subject `BabelQueue Security`.
 
 Please include: the affected package and version, the broker (Redis, RabbitMQ,
 Amazon SQS, Azure Service Bus, Apache Pulsar, Apache Kafka or ActiveMQ/Artemis), a

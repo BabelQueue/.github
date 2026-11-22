@@ -76,4 +76,4 @@ The Laravel adapter resolves the core (`babelqueue/php-sdk`) via a local Compose
 By contributing, you agree that your contributions are licensed under the
 project's **MIT License**.
 
-Questions? Open a discussion, or email **info@muhammetsafak.com.tr**.
+Questions? Open a discussion, or email **info@muhammetsafak.com**.
